@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple private flight booking dashboard for finding your next journey."
+    />
+    <title>CloudNine | Private flight booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="CloudNine home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>cloudnine</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="active" href="#book">Book a flight</a>
+        <a href="#trips">My trips</a>
+        <a href="#fleet">Our fleet</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" type="button" aria-label="Open notifications">
+          <span aria-hidden="true">♧</span>
+          <span class="notification-dot"></span>
+        </button>
+        <button class="profile-button" type="button" aria-label="Open profile menu">
+          <span class="avatar">AS</span>
+          <span class="profile-name">Alex Smith</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="book">
+        <div class="hero-copy">
+          <p class="eyebrow">PRIVATE TRAVEL, REIMAGINED</p>
+          <h1>Go further.<br /><em>Arrive inspired.</em></h1>
+          <p class="hero-description">
+            Effortless journeys, exceptional service, and the freedom to fly on your terms.
+          </p>
+          <div class="trust-row" aria-label="CloudNine benefits">
+            <span><strong>24/7</strong> Concierge</span>
+            <span><strong>180+</strong> Destinations</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun-glow"></div>
+          <div class="plane-silhouette">✈</div>
+          <span class="cloud cloud-one"></span>
+          <span class="cloud cloud-two"></span>
+        </div>
+      </section>
+
+      <section class="booking-shell" aria-labelledby="booking-title">
+        <div class="booking-heading">
+          <div>
+            <p class="section-kicker">PLAN YOUR JOURNEY</p>
+            <h2 id="booking-title">Where will you go next?</h2>
+          </div>
+          <div class="trip-type" role="group" aria-label="Trip type">
+            <button class="trip-option selected" type="button" data-trip-type="round-trip">Round trip</button>
+            <button class="trip-option" type="button" data-trip-type="one-way">One way</button>
+          </div>
+        </div>
+
+        <form class="search-form" id="flight-search-form">
+          <div class="route-fields">
+            <label class="field-card" for="from">
+              <span class="field-label">From</span>
+              <span class="field-value-row">
+                <span class="field-value" id="from-value">London</span>
+                <span class="airport-code">LHR</span>
+              </span>
+              <span class="field-subtitle">London Heathrow</span>
+              <input id="from" name="from" type="text" value="London" autocomplete="off" />
+            </label>
+
+            <button class="swap-button" type="button" id="swap-route" aria-label="Swap departure and arrival airports">↔</button>
+
+            <label class="field-card" for="to">
+              <span class="field-label">To</span>
+              <span class="field-value-row">
+                <span class="field-value" id="to-value">New York</span>
+                <span class="airport-code">JFK</span>
+              </span>
+              <span class="field-subtitle">John F. Kennedy</span>
+              <input id="to" name="to" type="text" value="New York" autocomplete="off" />
+            </label>
+          </div>
+
+          <label class="field-card date-card" for="departure-date">
+            <span class="field-label">Departure</span>
+            <span class="field-value" id="departure-value">24 Jun 2025</span>
+            <span class="field-subtitle">Tuesday</span>
+            <input id="departure-date" name="departure" type="date" value="2025-06-24" />
+          </label>
+
+          <label class="field-card date-card return-field" for="return-date">
+            <span class="field-label">Return</span>
+            <span class="field-value" id="return-value">28 Jun 2025</span>
+            <span class="field-subtitle">Saturday</span>
+            <input id="return-date" name="return" type="date" value="2025-06-28" />
+          </label>
+
+          <label class="field-card travelers-card" for="travelers">
+            <span class="field-label">Travelers</span>
+            <span class="field-value">2 Travelers</span>
+            <span class="field-subtitle">1 jet</span>
+            <select id="travelers" name="travelers">
+              <option>1 Traveler</option>
+              <option selected>2 Travelers</option>
+              <option>3 Travelers</option>
+              <option>4+ Travelers</option>
+            </select>
+          </label>
+
+          <button class="search-button" type="submit">
+            <span>Search flights</span>
+            <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+        <p class="form-message" id="form-message" role="status"></p>
+      </section>
+
+      <section class="content-grid" id="trips">
+        <div class="popular-section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">EXPLORE THE EXCEPTIONAL</p>
+              <h2>Popular destinations</h2>
+            </div>
+            <a href="#destinations">View all <span aria-hidden="true">→</span></a>
+          </div>
+
+          <div class="destination-grid" id="destinations">
+            <article class="destination-card destination-lake">
+              <div class="destination-overlay">
+                <span class="destination-tag">MOST LOVED</span>
+                <h3>Lake Como</h3>
+                <p>From London · 1h 55m</p>
+                <button type="button" class="destination-action" data-destination="Lake Como">Explore destination <span>→</span></button>
+              </div>
+            </article>
+            <article class="destination-card destination-coast">
+              <div class="destination-overlay">
+                <span class="destination-tag">NEW ROUTE</span>
+                <h3>Amalfi Coast</h3>
+                <p>From Paris · 2h 10m</p>
+                <button type="button" class="destination-action" data-destination="Amalfi Coast">Explore destination <span>→</span></button>
+              </div>
+            </article>
+            <article class="destination-card destination-city">
+              <div class="destination-overlay">
+                <span class="destination-tag">CITY ESCAPE</span>
+                <h3>New York</h3>
+                <p>From London · 7h 45m</p>
+                <button type="button" class="destination-action" data-destination="New York">Explore destination <span>→</span></button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="next-trip-card" id="fleet">
+          <div class="aside-heading">
+            <div>
+              <p class="section-kicker">YOUR NEXT ADVENTURE</p>
+              <h2>Ready when you are.</h2>
+            </div>
+            <span class="status-pill"><span></span> Confirmed</span>
+          </div>
+          <div class="mini-route">
+            <div><strong>LHR</strong><span>London</span></div>
+            <span class="route-line">✈</span>
+            <div class="align-right"><strong>JFK</strong><span>New York</span></div>
+          </div>
+          <div class="trip-details">
+            <span><small>DEPARTURE</small>24 Jun 2025</span>
+            <span><small>FLIGHT</small>CN 204</span>
+            <span><small>AIRCRAFT</small>Gulfstream G650</span>
+          </div>
+          <button class="outline-button" type="button" id="manage-trip">Manage booking <span>→</span></button>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2025 CloudNine Aviation</span>
+      <span>Travel beautifully.</span>
+    </footer>
+  </body>
+</html>
